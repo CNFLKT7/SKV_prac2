@@ -64,12 +64,15 @@ services:
       - GITEA__database__NAME=gitea
       - GITEA__database__USER=gitea
       - GITEA__database__PASSWD=gitea
+#      - GIT_CONFIG_REDMINE_HOST=http://localhost:8080
+#      - GIT_CONFIG_REDMINE_APIKEY=68a324d21a5d28205139ea49e96aa36f263eb1f1
     volumes:
       - ./storage/gitea:/data
     ports:
       - "3000:3000"
       - "222:22"
     restart: always
+#    command: /bin/sh -c "apk add --no-cache python3 bash && /app/gitea/gitea web"
     depends_on:
       - postgres
       - db-init
